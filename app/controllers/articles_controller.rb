@@ -17,6 +17,7 @@ end
 def create
   #render plain: params[:article]
   @article = Article.new(article_params) #whitelabeling what is permitted
+  @article.user = User.first
   #render plain: @article.inspect
   if @article.save
     flash[:notice] = "Article was created successfully."
